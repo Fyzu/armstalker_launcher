@@ -1,0 +1,46 @@
+<RCC>
+  <qresource prefix="qss_icons">
+    <file>images/darkstyle/rc/up_arrow_disabled.png</file>
+    <file>images/darkstyle/rc/Hmovetoolbar.png</file>
+    <file>images/darkstyle/rc/stylesheet-branch-end.png</file>
+    <file>images/darkstyle/rc/branch_closed-on.png</file>
+    <file>images/darkstyle/rc/stylesheet-vline.png</file>
+    <file>images/darkstyle/rc/branch_closed.png</file>
+    <file>images/darkstyle/rc/branch_open-on.png</file>
+    <file>images/darkstyle/rc/transparent.png</file>
+    <file>images/darkstyle/rc/right_arrow_disabled.png</file>
+    <file>images/darkstyle/rc/sizegrip.png</file>
+    <file>images/darkstyle/rc/close.png</file>
+    <file>images/darkstyle/rc/close-hover.png</file>
+    <file>images/darkstyle/rc/close-pressed.png</file>
+    <file>images/darkstyle/rc/down_arrow.png</file>
+    <file>images/darkstyle/rc/Vmovetoolbar.png</file>
+    <file>images/darkstyle/rc/left_arrow.png</file>
+    <file>images/darkstyle/rc/stylesheet-branch-more.png</file>
+    <file>images/darkstyle/rc/up_arrow.png</file>
+    <file>images/darkstyle/rc/right_arrow.png</file>
+    <file>images/darkstyle/rc/left_arrow_disabled.png</file>
+    <file>images/darkstyle/rc/Hsepartoolbar.png</file>
+    <file>images/darkstyle/rc/branch_open.png</file>
+    <file>images/darkstyle/rc/Vsepartoolbar.png</file>
+    <file>images/darkstyle/rc/down_arrow_disabled.png</file>
+    <file>images/darkstyle/rc/undock.png</file>
+    <file>images/darkstyle/rc/checkbox_checked_disabled.png</file>
+    <file>images/darkstyle/rc/checkbox_checked_focus.png</file>
+    <file>images/darkstyle/rc/checkbox_checked.png</file>
+    <file>images/darkstyle/rc/checkbox_indeterminate.png</file>
+    <file>images/darkstyle/rc/checkbox_indeterminate_focus.png</file>
+    <file>images/darkstyle/rc/checkbox_unchecked_disabled.png</file>
+    <file>images/darkstyle/rc/checkbox_unchecked_focus.png</file>
+    <file>images/darkstyle/rc/checkbox_unchecked.png</file>
+    <file>images/darkstyle/rc/radio_checked_disabled.png</file>
+    <file>images/darkstyle/rc/radio_checked_focus.png</file>
+    <file>images/darkstyle/rc/radio_checked.png</file>
+    <file>images/darkstyle/rc/radio_unchecked_disabled.png</file>
+    <file>images/darkstyle/rc/radio_unchecked_focus.png</file>
+    <file>images/darkstyle/rc/radio_unchecked.png</file>
+  </qresource>
+  <qresource prefix="qdarkstyle">
+      <file>darkstyle.qss</file>
+  </qresource>
+</RCC>

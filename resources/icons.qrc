@@ -1,0 +1,87 @@
+<RCC>
+  <qresource prefix="/icons">
+    <file>images/default avatar.png</file>
+    <file>images/yoma2009.ico</file>
+    <file>images/arma3sync.ico</file>
+    <file alias="arma3.png">images/arma3.png</file>
+    <file alias="arma3down.png">images/arma3down.png</file>
+    <file alias="serverOn.png">images/serverOn.png</file>
+    <file alias="serverOff.png">images/serverOff.png</file>
+    <file>images/broken45.png</file>
+    <file>images/cloud126.png</file>
+    <file>images/cloud133.png</file>
+    <file>images/cloud149.png</file>
+    <file>images/cloud152.png</file>
+    <file>images/cloud198.png</file>
+    <file>images/clouds11.png</file>
+    <file>images/data104.png</file>
+    <file>images/delete82.png</file>
+    <file>images/down177.png</file>
+    <file>images/download61.png</file>
+    <file>images/favourites4.png</file>
+    <file>images/file96.png</file>
+    <file>images/hard drive.png</file>
+    <file>images/round60.png</file>
+    <file>images/settings59.png</file>
+    <file>images/up177.png</file>
+    <file>images/computer monitor1.png</file>
+    <file>images/file99.png</file>
+    <file>images/puzzle37.png</file>
+    <file>images/puzzleSetting37.png</file>
+    <file>images/add107.png</file>
+    <file>images/refresh57.png</file>
+    <file>images/statistics13.png</file>
+    <file>images/delete85.png</file>
+    <file>images/gear70.png</file>
+    <file>images/wrench10.png</file>
+    <file>images/update8.png</file>
+    <file>images/warning37.png</file>
+    <file>images/checked21.png</file>
+    <file>images/folder63.png</file>
+    <file>images/eye106.png</file>
+    <file>images/arrow647.png</file>
+    <file>images/key182.png</file>
+    <file>images/user167.png</file>
+    <file>images/power buttons1.png</file>
+    <file>images/return10.png</file>
+    <file>images/vk.png</file>
+    <file alias="darkstyle/arma3.png">images/darkstyle/arma3.png</file>
+    <file alias="darkstyle/arma3down.png">images/darkstyle/arma3down.png</file>
+    <file>images/darkstyle/add107.png</file>
+    <file>images/darkstyle/broken45.png</file>
+    <file>images/darkstyle/cloud126.png</file>
+    <file>images/darkstyle/cloud133.png</file>
+    <file>images/darkstyle/cloud149.png</file>
+    <file>images/darkstyle/cloud152.png</file>
+    <file>images/darkstyle/cloud198.png</file>
+    <file>images/darkstyle/clouds11.png</file>
+    <file>images/darkstyle/computer monitor1.png</file>
+    <file>images/darkstyle/data104.png</file>
+    <file>images/darkstyle/delete82.png</file>
+    <file>images/darkstyle/delete85.png</file>
+    <file>images/darkstyle/down177.png</file>
+    <file>images/darkstyle/download61.png</file>
+    <file>images/darkstyle/favourites4.png</file>
+    <file>images/darkstyle/file96.png</file>
+    <file>images/darkstyle/file99.png</file>
+    <file>images/darkstyle/gear70.png</file>
+    <file>images/darkstyle/hard drive.png</file>
+    <file>images/darkstyle/puzzle37.png</file>
+    <file>images/darkstyle/puzzleSetting37.png</file>
+    <file>images/darkstyle/refresh57.png</file>
+    <file>images/darkstyle/round60.png</file>
+    <file>images/darkstyle/settings59.png</file>
+    <file>images/darkstyle/statistics13.png</file>
+    <file>images/darkstyle/up177.png</file>
+    <file>images/darkstyle/wrench10.png</file>
+    <file>images/darkstyle/arrow647.png</file>
+    <file>images/darkstyle/key182.png</file>
+    <file>images/darkstyle/user167.png</file>
+    <file>images/darkstyle/power buttons1.png</file>
+    <file>images/darkstyle/update8.png</file>
+    <file>images/darkstyle/eye106.png</file>
+    <file>images/darkstyle/folder63.png</file>
+    <file>images/darkstyle/return10.png</file>
+    <file>images/darkstyle/vk.png</file>
+  </qresource>
+</RCC>

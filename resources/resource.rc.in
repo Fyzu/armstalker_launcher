@@ -1,0 +1,29 @@
+#include "winver.h"
+IDI_ICON1               ICON                    "@PROJECT_SOURCE_DIR@\\resources\\icon1.ico"
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION     @PROJECT_VERSION_MAJOR@,@PROJECT_VERSION_MINOR@,@PROJECT_VERSION_PATCH@,@PROJECT_VERSION_TWEAK@
+PRODUCTVERSION  @PROJECT_VERSION_MAJOR@,@PROJECT_VERSION_MINOR@
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "CompanyName",        "@PROJECT_NAME@"
+            VALUE "FileDescription",    "@PROJECT_NAME@.exe"
+            VALUE "FileVersion",        "@PROJECT_VERSION_MAJOR@.@PROJECT_VERSION_MINOR@.@PROJECT_VERSION_PATCH@.@PROJECT_VERSION_TWEAK@\0"
+            VALUE "InternalName",       "@PROJECT_NAME@"
+            VALUE "LegalCopyright",     "Petrov D.V."
+            VALUE "LegalTrademarks1",   "GNU General Public License"
+            VALUE "LegalTrademarks2",   "GNU General Public License"
+            VALUE "OriginalFilename",   "@PROJECT_NAME@.exe"
+            VALUE "ProductName",        "Dvpetrov App."
+            VALUE "ProductVersion",     "@PROJECT_VERSION_MAJOR@.@PROJECT_VERSION_MINOR@\0"
+        END
+    END
+
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0419, 1251
+    END
+END
