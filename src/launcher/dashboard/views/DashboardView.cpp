@@ -16,10 +16,13 @@
  ***************************************************************************/
 
 #include <src/launcher/base/presenters/LauncherPresenter.h>
+
 #include "DashboardView.h"
 
 DashboardView::DashboardView()
         : QWidget(), BaseView("DashboardView"), ui(new Ui::DashboardView) {
+
+    Logger::debug(TAG, "DashboardView");
 
     ui->setupUi(this);
 
@@ -48,5 +51,15 @@ DashboardView::DashboardView()
 }
 
 DashboardView::~DashboardView() {
+
+    Logger::debug(TAG, "~DashboardView");
+
     delete ui;
+}
+
+void DashboardView::saveChanges() {
+
+    Logger::debug(TAG, "saveChanges");
+
+    //TODO: Save settings
 }

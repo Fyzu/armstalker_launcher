@@ -50,8 +50,8 @@ signals:
 
 private:
     LauncherView *launcherView;
-    DashboardView *dashBoardView;
-    GameSettingsView *gameSettingsView;
+    DashboardView *dashBoardView = nullptr;
+    GameSettingsView *gameSettingsView = nullptr;
 
 private slots:
 

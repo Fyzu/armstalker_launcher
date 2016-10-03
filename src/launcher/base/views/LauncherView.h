@@ -48,7 +48,7 @@ private:
     void setupUi();
 
 signals:
-    void viewChange(int);
+    void backButtonClicked(int);
 
 public slots:
     void onBackButtonClicked();

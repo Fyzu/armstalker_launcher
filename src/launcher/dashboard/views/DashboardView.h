@@ -36,11 +36,14 @@ public:
     ~DashboardView();
 
 signals:
+
     void viewChange(int);
 
 private:
     Ui::DashboardView *ui;
 
+public slots:
+    void saveChanges();
 };
 
 

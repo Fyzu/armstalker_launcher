@@ -17,12 +17,13 @@
 
 #include "LauncherPresenter.h"
 
-LauncherPresenter::LauncherPresenter(LauncherView *launcherView) : launcherView(launcherView), BasePresenter("LauncherPresenter") {
+LauncherPresenter::LauncherPresenter(LauncherView *launcherView)
+        : launcherView(launcherView), BasePresenter("LauncherPresenter") {
 
-    Logger::debug(TAG, TAG);
+    Logger::debug(TAG, "LauncherPresenter");
 
     connect(this, &LauncherPresenter::viewChange, this, &LauncherPresenter::onViewChange);
-    connect(launcherView, &LauncherView::viewChange, this, &LauncherPresenter::onViewChange);
+    connect(launcherView, &LauncherView::backButtonClicked, this, &LauncherPresenter::onViewChange);
 
     emit viewChange(DASHBOARD);
     updateStyle();
@@ -38,9 +39,9 @@ LauncherPresenter::~LauncherPresenter() {
 
 void LauncherPresenter::updateStyle() {
 
-    Logger::info(TAG, "updateStyle");
+    Logger::debug(TAG, "updateStyle");
 
-    QFile f(":/qdarkstyle/darkstyle.qss");
+    QFile f(":/qdarkstyle/darkstyle.css");
     if (f.open(QFile::ReadOnly | QFile::Text)) {
         QTextStream ts(&f);
         qApp->setStyleSheet(ts.readAll());
@@ -52,18 +53,20 @@ void LauncherPresenter::updateStyle() {
 
 void LauncherPresenter::onViewChange(int viewTypeIndex) {
 
-    Logger::info(TAG, "onViewChange") << "viewIndex - " << viewTypeIndex;
+    Logger::debug(TAG, "onViewChange") << "viewIndex -" << viewTypeIndex;
 
     switch (viewTypeIndex) {
         case DASHBOARD:
             if (dashBoardView == nullptr) {
                 dashBoardView = new DashboardView();
                 launcherView->insertView(DASHBOARD, dashBoardView);
+
                 connect(dashBoardView, &DashboardView::viewChange, this, &LauncherPresenter::onViewChange);
+                connect(launcherView, &LauncherView::backButtonClicked, dashBoardView, &DashboardView::saveChanges);
             }
             break;
         case GAME_SETTINGS:
-            if(gameSettingsView == nullptr) {
+            if (gameSettingsView == nullptr) {
                 gameSettingsView = new GameSettingsView();
                 launcherView->insertView(GAME_SETTINGS, gameSettingsView);
             }

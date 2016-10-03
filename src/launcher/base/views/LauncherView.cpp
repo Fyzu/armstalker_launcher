@@ -19,6 +19,8 @@
 
 LauncherView::LauncherView() : QMainWindow(), BaseView("LauncherView") {
 
+    Logger::debug(TAG, "LauncherView");
+
     setupUi();
 
     connect(backButton, &QPushButton::clicked, this, &LauncherView::onBackButtonClicked);
@@ -28,6 +30,9 @@ LauncherView::LauncherView() : QMainWindow(), BaseView("LauncherView") {
 }
 
 LauncherView::~LauncherView() {
+
+    Logger::debug(TAG, "~LauncherView");
+
     delete launcherPresenter;
     delete stackedWidget;
     delete backButton;
@@ -48,7 +53,6 @@ void LauncherView::setupUi() {
     this->setFont(font);
 
     stackedWidget = new SlidingStackedWidget(this);
-    stackedWidget->setObjectName(QStringLiteral("StackedWidget"));
     QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Preferred);
     sizePolicy1.setHorizontalStretch(0);
     sizePolicy1.setVerticalStretch(0);
@@ -60,7 +64,6 @@ void LauncherView::setupUi() {
     setCentralWidget(stackedWidget);
 
     backButton = new QPushButton(this);
-    backButton->hide();
     backButton->setGeometry(QRect(160, 160, 25, 25));
     backButton->setMinimumSize(QSize(25, 25));
     backButton->setMaximumSize(QSize(25, 25));
@@ -73,19 +76,28 @@ void LauncherView::setupUi() {
 }
 
 void LauncherView::insertView(int index, QWidget *widget) {
+
+    Logger::debug(TAG, "insertView") << "Insert view to stack -" << widget->objectName();
+
     stackedWidget->insertWidget(index, widget);
 }
 
-void LauncherView::showView(int index) {
-    stackedWidget->showWidget(index);
+void LauncherView::showView(int viewTypeIndex) {
+
+    Logger::debug(TAG, "showView") << "viewIndex -" << viewTypeIndex;
+
+    stackedWidget->showWidget(viewTypeIndex);
     backButton->hide();
 }
 
 void LauncherView::onBackButtonClicked() {
-    emit viewChange(LauncherPresenter::DASHBOARD);
+    emit backButtonClicked(LauncherPresenter::DASHBOARD);
 }
 
 void LauncherView::onChangeViewFinished(int currentIndex) {
+
+    Logger::debug(TAG, "onChangeViewFinished") << "currentIndex -" << currentIndex;
+
     if (currentIndex == LauncherPresenter::DASHBOARD) {
         backButton->hide();
     } else {
