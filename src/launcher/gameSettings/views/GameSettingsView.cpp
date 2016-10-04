@@ -15,13 +15,28 @@
  * along with ArmSTALKER. If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
+#include <src/core/base/logger/Logger.h>
 #include "GameSettingsView.h"
 
-GameSettingsView::GameSettingsView() : QWidget(), BaseView("GameSettingsView"), ui(new Ui::GameSettingsView()) {
+GameSettingsView::GameSettingsView()
+        : QWidget(), BaseView("GameSettingsView"), ui(new Ui::GameSettingsView()), gameSettingsService(GameSettingsService::getInstance()) {
 
     ui->setupUi(this);
+
+    BaseView::init();
 }
 
 GameSettingsView::~GameSettingsView() {
+
+}
+
+void GameSettingsView::onResume() {
+    GameSettingsModel gameSettingsModel = gameSettingsService->get();
+
+    Logger::debug(TAG, "onResume");
+
+}
+
+void GameSettingsView::onStop() {
 
 }

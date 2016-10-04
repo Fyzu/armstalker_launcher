@@ -63,3 +63,11 @@ void DashboardView::saveChanges() {
 
     //TODO: Save settings
 }
+
+void DashboardView::onResume() {
+
+}
+
+void DashboardView::onStop() {
+
+}

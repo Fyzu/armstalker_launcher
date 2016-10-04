@@ -64,12 +64,14 @@ void LauncherPresenter::onViewChange(int viewTypeIndex) {
                 connect(dashBoardView, &DashboardView::viewChange, this, &LauncherPresenter::onViewChange);
                 connect(launcherView, &LauncherView::backButtonClicked, dashBoardView, &DashboardView::saveChanges);
             }
+            emit dashBoardView->resume();
             break;
         case GAME_SETTINGS:
             if (gameSettingsView == nullptr) {
                 gameSettingsView = new GameSettingsView();
                 launcherView->insertView(GAME_SETTINGS, gameSettingsView);
             }
+            emit gameSettingsView->resume();
             break;
         default:
             return;

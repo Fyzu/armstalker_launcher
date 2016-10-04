@@ -19,12 +19,24 @@
 #define ARMSTALKER_LAUNCHER_BASE_VIEW_H
 
 #include "src/core/base/core/BaseCore.h"
+#include <QObject>
 
-class BaseView : protected BaseCore {
+class BaseView : public BaseCore {
 
 public:
     BaseView(const char *className) : BaseCore(className) {
+        QObject *viewObject = dynamic_cast<QObject*>(this);
+        QObject::connect(viewObject, SIGNAL(resume()), viewObject, SLOT(onResume()));
+    }
 
+    virtual void resume() = 0;
+    virtual void stop() = 0;
+
+protected:
+    virtual void onResume() = 0;
+    virtual void onStop() = 0;
+
+    void init() {
     }
 
 };

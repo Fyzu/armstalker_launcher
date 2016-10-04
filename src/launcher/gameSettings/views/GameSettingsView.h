@@ -20,12 +20,13 @@
 
 #include <QWidget>
 #include <src/core/base/view/BaseView.h>
+#include <src/launcher/gameSettings/services/GameSettingsService.h>
 
 #include "ui_GameSettings.h"
 
 class GameSettingsView : public QWidget, public BaseView {
 
-    Q_OBJECT
+Q_OBJECT
 public:
     GameSettingsView();
 
@@ -33,6 +34,20 @@ public:
 
 private:
     Ui::GameSettingsView *ui;
+
+    GameSettingsService *gameSettingsService;
+
+signals:
+
+    void resume() override;
+
+    void stop() override;
+
+public slots:
+
+    void onResume() override;
+
+    void onStop() override;
 
 public:
 

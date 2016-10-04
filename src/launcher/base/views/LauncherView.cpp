@@ -86,6 +86,8 @@ void LauncherView::showView(int viewTypeIndex) {
 
     Logger::debug(TAG, "showView") << "viewIndex -" << viewTypeIndex;
 
+
+
     stackedWidget->showWidget(viewTypeIndex);
     backButton->hide();
 }
@@ -103,4 +105,12 @@ void LauncherView::onChangeViewFinished(int currentIndex) {
     } else {
         backButton->show();
     }
+}
+
+void LauncherView::onResume() {
+
+}
+
+void LauncherView::onStop() {
+
 }

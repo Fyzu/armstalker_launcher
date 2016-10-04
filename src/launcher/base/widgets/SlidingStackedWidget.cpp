@@ -125,6 +125,7 @@ void SlidingStackedWidget::showWidget(QWidget *nextWidget, enum Direction direct
     isActive = true;
     animationGroup->start();
 
+
     //note; the rest is done via a connect from the animation ready;
     //animationGroup->finished() provides a signal when animation is done;
     //so we connect this to some post processing slot,

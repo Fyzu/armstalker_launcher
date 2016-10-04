@@ -29,14 +29,15 @@ class LauncherPresenter;
 
 class LauncherView : public QMainWindow, public BaseView {
 
-    Q_OBJECT
+Q_OBJECT
 
 public:
     LauncherView();
 
     ~LauncherView();
 
-    void insertView(int index, QWidget * widget);
+    void insertView(int index, QWidget *widget);
+
     void showView(int index);
 
 private:
@@ -48,10 +49,21 @@ private:
     void setupUi();
 
 signals:
+
+    void resume() override;
+
+    void stop() override;
+
     void backButtonClicked(int);
 
 public slots:
+
+    void onResume() override;
+
+    void onStop() override;
+
     void onBackButtonClicked();
+
     void onChangeViewFinished(int);
 };
 

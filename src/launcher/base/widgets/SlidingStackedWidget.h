@@ -18,6 +18,7 @@
 #ifndef SLIDING_STACKED_WIDGET_H
 #define SLIDING_STACKED_WIDGET_H
 
+#include <QObject>
 #include <QStackedWidget>
 #include <QEasingCurve>
 #include <QPropertyAnimation>

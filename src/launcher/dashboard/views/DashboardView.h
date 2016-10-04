@@ -28,7 +28,7 @@
 
 class DashboardView : public QWidget, public BaseView {
 
-    Q_OBJECT
+Q_OBJECT
 
 public:
     DashboardView();
@@ -37,13 +37,22 @@ public:
 
 signals:
 
+    void resume() override;
+
+    void stop() override;
+
     void viewChange(int);
 
 private:
     Ui::DashboardView *ui;
 
 public slots:
+
     void saveChanges();
+
+    void onResume() override;
+
+    void onStop() override;
 };
 
 
