@@ -38,8 +38,6 @@ private:
 
     GameSettingsService *gameSettingsService;
 
-signals:
-
 public slots:
 
     void onResume() override;

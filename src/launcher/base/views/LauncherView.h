@@ -25,6 +25,8 @@
 #include "src/core/base/view/BaseView.h"
 #include "src/launcher/base/widgets/SlidingStackedWidget.h"
 
+#define STYLE_PATH ":/qdarkstyle/darkstyle.css"
+
 class LauncherPresenter;
 
 class LauncherView : public QMainWindow, public BaseCore {
@@ -32,6 +34,7 @@ class LauncherView : public QMainWindow, public BaseCore {
 Q_OBJECT
 
 public:
+
     LauncherView();
 
     ~LauncherView();
@@ -41,6 +44,7 @@ public:
     void showView(int index);
 
 private:
+
     LauncherPresenter *launcherPresenter;
 
     SlidingStackedWidget *stackedWidget;

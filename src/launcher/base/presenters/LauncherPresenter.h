@@ -32,7 +32,7 @@ class LauncherView;
 
 class LauncherPresenter : public BasePresenter {
 
-    Q_OBJECT
+Q_OBJECT
 
 public:
     enum ViewType {
@@ -43,8 +43,6 @@ public:
     LauncherPresenter(LauncherView *launcherView);
 
     ~LauncherPresenter();
-
-signals:
 
 private:
     LauncherView *launcherView;

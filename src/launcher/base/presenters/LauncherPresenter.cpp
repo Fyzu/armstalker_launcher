@@ -40,7 +40,7 @@ void LauncherPresenter::updateStyle() {
 
     Logger::debug(TAG, "updateStyle");
 
-    QFile f(":/qdarkstyle/darkstyle.css");
+    QFile f(STYLE_PATH);
     if (f.open(QFile::ReadOnly | QFile::Text)) {
         QTextStream ts(&f);
         qApp->setStyleSheet(ts.readAll());

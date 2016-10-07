@@ -24,6 +24,8 @@ GameSettingsView::GameSettingsView() : BaseView("GameSettingsView"), ui(new Ui::
     Logger::debug(TAG, "GameSettingsView");
 
     ui->setupUi(this);
+
+    //TODO: Добавить хранение путей к арме и аддонам армы
 }
 
 GameSettingsView::~GameSettingsView() {
@@ -34,8 +36,34 @@ void GameSettingsView::onResume() {
 
     Logger::debug(TAG, "onResume");
 
+    //TODO: Получение списка профайлов
+
+    //TODO: Получение списка malloc'ов
+
     GameSettingsModel gameSettingsModel = gameSettingsService->get();
-    ui->
+
+    ui->battleEye->setChecked(gameSettingsModel.isBattlEye());
+    ui->enableHT->setChecked(gameSettingsModel.isEnableHT());
+    ui->window->setChecked(gameSettingsModel.isWindow());
+    ui->worldEmpty->setChecked(gameSettingsModel.isWorldEmpty());
+    ui->winxp->setChecked(gameSettingsModel.isWinxp());
+    ui->noLogs->setChecked(gameSettingsModel.isNoLogs());
+    ui->skipIntro->setChecked(gameSettingsModel.isSkipIntro());
+    ui->showScriptErrors->setChecked(gameSettingsModel.isShowScriptErrors());
+    ui->nosplash->setChecked(gameSettingsModel.isNosplash());
+    ui->noPause->setChecked(gameSettingsModel.isNoPause());
+    ui->noCB->setChecked(gameSettingsModel.isNoCB());
+    ui->noFilePatching->setChecked(gameSettingsModel.isNoFilePatching());
+
+    //TODO: добавить проверку на пустую строку, с результатом выбора чекбокса
+    ui->name->setCurrentText(gameSettingsModel.getName());
+    ui->maxVRAM->setCurrentText(gameSettingsModel.getMaxVRAM());
+    ui->maxMem->setCurrentText(gameSettingsModel.getMaxMem());
+    ui->cpuCount->setCurrentText(gameSettingsModel.getCpuCount());
+    ui->exThreads->setCurrentText(gameSettingsModel.getExThreads());
+    ui->malloc->setCurrentText(gameSettingsModel.getMalloc());
+
+    ui->addParameters->setText(gameSettingsModel.getAddParam());
 }
 
 void GameSettingsView::onStop() {

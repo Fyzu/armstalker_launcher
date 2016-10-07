@@ -23,7 +23,7 @@
 
 class BaseView : public QWidget, public BaseCore {
 
-    Q_OBJECT
+Q_OBJECT
 
 public:
     explicit BaseView(const char *className) : QWidget(), BaseCore(className) {
@@ -33,12 +33,17 @@ public:
     }
 
 signals:
+
     void resume();
+
     void stop();
+
     void viewChange(int);
 
 protected slots:
+
     virtual void onResume() = 0;
+
     virtual void onStop() = 0;
 
 private:

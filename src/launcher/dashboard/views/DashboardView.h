@@ -31,6 +31,7 @@ class DashboardView : public BaseView {
 Q_OBJECT
 
 public:
+
     DashboardView();
 
     ~DashboardView();
@@ -40,11 +41,10 @@ signals:
     void viewChange(int);
 
 private:
+
     Ui::DashboardView *ui;
 
 public slots:
-
-    void saveChanges();
 
     void onResume() override;
 
