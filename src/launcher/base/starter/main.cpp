@@ -20,14 +20,22 @@
 #include "src/core/base/logger/Logger.h"
 #include "src/launcher/base/views/LauncherView.h"
 
+#define STARTER "Starter"
+
 int main(int argc, char *argv[]) {
 
     QApplication a(argc, argv);
 
     Logger::init();
 
+    Logger::info(STARTER, "main") << "system locale -" << QLocale::system().name();
+
     LauncherView launcherView;
     launcherView.show();
 
-    return a.exec();
+    int execCode = a.exec();
+
+    Logger::info(STARTER, "main") << "application finish with code -" << execCode;
+
+    return execCode;
 }

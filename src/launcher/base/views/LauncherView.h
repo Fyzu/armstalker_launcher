@@ -27,7 +27,7 @@
 
 class LauncherPresenter;
 
-class LauncherView : public QMainWindow, public BaseView {
+class LauncherView : public QMainWindow, public BaseCore {
 
 Q_OBJECT
 
@@ -50,17 +50,9 @@ private:
 
 signals:
 
-    void resume() override;
-
-    void stop() override;
-
-    void backButtonClicked(int);
+    void viewChange(int);
 
 public slots:
-
-    void onResume() override;
-
-    void onStop() override;
 
     void onBackButtonClicked();
 

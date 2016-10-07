@@ -15,6 +15,7 @@
  * along with ArmSTALKER. If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
+#include <src/core/base/view/BaseView.h>
 #include "SlidingStackedWidget.h"
 
 SlidingStackedWidget::SlidingStackedWidget(QWidget *parent)
@@ -125,14 +126,16 @@ void SlidingStackedWidget::showWidget(QWidget *nextWidget, enum Direction direct
     isActive = true;
     animationGroup->start();
 
-
-    //note; the rest is done via a connect from the animation ready;
+    //note; the rest is done via a init from the animation ready;
     //animationGroup->finished() provides a signal when animation is done;
-    //so we connect this to some post processing slot,
+    //so we init this to some post processing slot,
     //that we implement here below in animationFinish.
 }
 
 void SlidingStackedWidget::animationFinish() {
+
+    QWidget *preWidget = currentWidget();
+    emit dynamic_cast<BaseView *>(preWidget)->stop();
 
     int oldIndex = currentIndex();
     //when ready, call the QStackedWidget slot setCurrentIndex(int)

@@ -19,8 +19,7 @@
 
 #include "DashboardView.h"
 
-DashboardView::DashboardView()
-        : QWidget(), BaseView("DashboardView"), ui(new Ui::DashboardView) {
+DashboardView::DashboardView() : BaseView("DashboardView"), ui(new Ui::DashboardView) {
 
     Logger::debug(TAG, "DashboardView");
 
@@ -65,6 +64,8 @@ void DashboardView::saveChanges() {
 }
 
 void DashboardView::onResume() {
+
+    Logger::debug(TAG, "onResume");
 
 }
 

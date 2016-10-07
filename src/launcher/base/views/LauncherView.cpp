@@ -17,7 +17,7 @@
 
 #include "LauncherView.h"
 
-LauncherView::LauncherView() : QMainWindow(), BaseView("LauncherView") {
+LauncherView::LauncherView() : QMainWindow(), BaseCore("LauncherView") {
 
     Logger::debug(TAG, "LauncherView");
 
@@ -27,6 +27,7 @@ LauncherView::LauncherView() : QMainWindow(), BaseView("LauncherView") {
     connect(stackedWidget, &QStackedWidget::currentChanged, this, &LauncherView::onChangeViewFinished);
 
     launcherPresenter = new LauncherPresenter(this);
+
 }
 
 LauncherView::~LauncherView() {
@@ -93,7 +94,7 @@ void LauncherView::showView(int viewTypeIndex) {
 }
 
 void LauncherView::onBackButtonClicked() {
-    emit backButtonClicked(LauncherPresenter::DASHBOARD);
+    emit viewChange(LauncherPresenter::DASHBOARD);
 }
 
 void LauncherView::onChangeViewFinished(int currentIndex) {
@@ -102,15 +103,7 @@ void LauncherView::onChangeViewFinished(int currentIndex) {
 
     if (currentIndex == LauncherPresenter::DASHBOARD) {
         backButton->hide();
-    } else {
+    } else if(currentIndex >= 0) {
         backButton->show();
     }
-}
-
-void LauncherView::onResume() {
-
-}
-
-void LauncherView::onStop() {
-
 }

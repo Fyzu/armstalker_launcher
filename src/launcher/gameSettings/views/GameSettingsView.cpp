@@ -18,12 +18,12 @@
 #include <src/core/base/logger/Logger.h>
 #include "GameSettingsView.h"
 
-GameSettingsView::GameSettingsView()
-        : QWidget(), BaseView("GameSettingsView"), ui(new Ui::GameSettingsView()), gameSettingsService(GameSettingsService::getInstance()) {
+GameSettingsView::GameSettingsView() : BaseView("GameSettingsView"), ui(new Ui::GameSettingsView()),
+                                       gameSettingsService(GameSettingsService::getInstance()) {
+
+    Logger::debug(TAG, "GameSettingsView");
 
     ui->setupUi(this);
-
-    BaseView::init();
 }
 
 GameSettingsView::~GameSettingsView() {
@@ -31,10 +31,11 @@ GameSettingsView::~GameSettingsView() {
 }
 
 void GameSettingsView::onResume() {
-    GameSettingsModel gameSettingsModel = gameSettingsService->get();
 
     Logger::debug(TAG, "onResume");
 
+    GameSettingsModel gameSettingsModel = gameSettingsService->get();
+    ui->
 }
 
 void GameSettingsView::onStop() {

@@ -24,9 +24,10 @@
 
 #include "ui_GameSettings.h"
 
-class GameSettingsView : public QWidget, public BaseView {
+class GameSettingsView : public BaseView {
 
-Q_OBJECT
+    Q_OBJECT
+
 public:
     GameSettingsView();
 
@@ -38,10 +39,6 @@ private:
     GameSettingsService *gameSettingsService;
 
 signals:
-
-    void resume() override;
-
-    void stop() override;
 
 public slots:
 

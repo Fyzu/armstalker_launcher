@@ -46,8 +46,6 @@ public:
 
 signals:
 
-    void viewChange(int);
-
 private:
     LauncherView *launcherView;
     DashboardView *dashBoardView = nullptr;

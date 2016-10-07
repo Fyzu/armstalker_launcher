@@ -19,25 +19,30 @@
 #define ARMSTALKER_LAUNCHER_BASE_VIEW_H
 
 #include "src/core/base/core/BaseCore.h"
-#include <QObject>
+#include <QtWidgets/qwidget.h>
 
-class BaseView : public BaseCore {
+class BaseView : public QWidget, public BaseCore {
+
+    Q_OBJECT
 
 public:
-    BaseView(const char *className) : BaseCore(className) {
-        QObject *viewObject = dynamic_cast<QObject*>(this);
-        QObject::connect(viewObject, SIGNAL(resume()), viewObject, SLOT(onResume()));
+    explicit BaseView(const char *className) : QWidget(), BaseCore(className) {
+
+        QObject::connect(this, SIGNAL(resume()), this, SLOT(onResume()));
+        QObject::connect(this, SIGNAL(stop()), this, SLOT(onStop()));
     }
 
-    virtual void resume() = 0;
-    virtual void stop() = 0;
+signals:
+    void resume();
+    void stop();
+    void viewChange(int);
 
-protected:
+protected slots:
     virtual void onResume() = 0;
     virtual void onStop() = 0;
 
-    void init() {
-    }
+private:
+    Q_DISABLE_COPY(BaseView)
 
 };
 

@@ -22,11 +22,10 @@ LauncherPresenter::LauncherPresenter(LauncherView *launcherView)
 
     Logger::debug(TAG, "LauncherPresenter");
 
-    connect(this, &LauncherPresenter::viewChange, this, &LauncherPresenter::onViewChange);
     connect(launcherView, &LauncherView::backButtonClicked, this, &LauncherPresenter::onViewChange);
 
-    emit viewChange(DASHBOARD);
     updateStyle();
+    onViewChange(DASHBOARD);
 }
 
 LauncherPresenter::~LauncherPresenter() {
@@ -61,8 +60,7 @@ void LauncherPresenter::onViewChange(int viewTypeIndex) {
                 dashBoardView = new DashboardView();
                 launcherView->insertView(DASHBOARD, dashBoardView);
 
-                connect(dashBoardView, &DashboardView::viewChange, this, &LauncherPresenter::onViewChange);
-                connect(launcherView, &LauncherView::backButtonClicked, dashBoardView, &DashboardView::saveChanges);
+                connect(dashBoardView, SIGNAL(viewChange(int)), this, SLOT(onViewChange(int)));
             }
             emit dashBoardView->resume();
             break;

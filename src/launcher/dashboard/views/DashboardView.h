@@ -26,7 +26,7 @@
 
 #include "ui_Dashboard.h"
 
-class DashboardView : public QWidget, public BaseView {
+class DashboardView : public BaseView {
 
 Q_OBJECT
 
@@ -36,10 +36,6 @@ public:
     ~DashboardView();
 
 signals:
-
-    void resume() override;
-
-    void stop() override;
 
     void viewChange(int);
 
