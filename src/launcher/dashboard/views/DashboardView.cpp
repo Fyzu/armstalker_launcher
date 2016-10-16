@@ -19,7 +19,8 @@
 
 #include "DashboardView.h"
 
-DashboardView::DashboardView() : BaseView("DashboardView"), ui(new Ui::DashboardView) {
+DashboardView::DashboardView() : BaseView("DashboardView"), ui(new Ui::DashboardView),
+                                 gameSettingsService(GameSettingsService::getInstance()) {
 
     Logger::debug(TAG, "DashboardView");
 
@@ -42,7 +43,6 @@ DashboardView::DashboardView() : BaseView("DashboardView"), ui(new Ui::Dashboard
     });
     connect(ui->vkButton, &QPushButton::clicked, [&]() {
         QDesktopServices::openUrl(QUrl("https://vk.com/armstalker_online"));
-
     });
     connect(ui->forumButton, &QPushButton::clicked, [&]() {
         QDesktopServices::openUrl(QUrl("http://armstalker.ru/forum/"));
@@ -60,6 +60,18 @@ void DashboardView::onResume() {
 
     Logger::debug(TAG, "onResume");
 
+    QString gameVersion = gameSettingsService->getGameVersion();
+    if (gameVersion.isEmpty()) {
+        ui->gameVersionLabel->setText(tr("Неизвестно"));
+    } else {
+        ui->gameVersionLabel->setText(gameVersion);
+    }
+    QString modVersion = gameSettingsService->getModVersion();
+    if (modVersion.isEmpty()) {
+        ui->modVersionLabel->setText(tr("Неизвестно"));
+    } else {
+        ui->modVersionLabel->setText(modVersion);
+    }
 }
 
 void DashboardView::onStop() {

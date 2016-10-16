@@ -34,15 +34,21 @@ public:
     ~GameSettingsView();
 
 private:
+
+    void saveSettings();
+
     Ui::GameSettingsView *ui;
 
     GameSettingsService *gameSettingsService;
 
-public slots:
+
+private slots:
 
     void onResume() override;
 
     void onStop() override;
+
+    void onGamePathBrowse();
 
 public:
 

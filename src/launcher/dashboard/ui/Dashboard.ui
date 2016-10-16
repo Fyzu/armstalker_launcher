@@ -98,14 +98,14 @@
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_2">
             <item>
-             <widget class="QLabel" name="label_8">
+             <widget class="QLabel" name="modVersionLabel">
               <property name="text">
                <string>не найдено</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_9">
+             <widget class="QLabel" name="gameVersionLabel">
               <property name="text">
                <string>не найдено</string>
               </property>

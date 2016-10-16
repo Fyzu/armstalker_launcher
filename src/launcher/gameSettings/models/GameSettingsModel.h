@@ -44,6 +44,7 @@ private:
     bool skipIntro;
     bool worldEmpty;
     bool noLogs;
+    QString gamePath;
 
 public:
 
@@ -260,6 +261,14 @@ public:
 
     void setNoLogs(bool noLogs) {
         GameSettingsModel::noLogs = noLogs;
+    }
+
+    const QString &getGamePath() const {
+        return gamePath;
+    }
+
+    void setGamePath(const QString &gamePath) {
+        GameSettingsModel::gamePath = gamePath;
     }
 };
 

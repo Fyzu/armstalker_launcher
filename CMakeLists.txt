@@ -6,6 +6,9 @@ project(ArmSTALKER VERSION 0.1.0.0)
 # Qt Libraries
 set(QT_LIBRARIES_REQUIRED Core Widgets Gui Network)
 
+# External Libraries
+set(EXTERNAL_LIBRARIES version)
+
 # Sources
 #file(GLOB_RECURSE SOURCE_FILES *.cpp)
 set(SOURCE_FILES

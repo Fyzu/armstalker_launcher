@@ -28,6 +28,6 @@ qt5_wrap_ui(UI_HEADERS ${UI_FILES})
 # Configure
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${UI_FILES} ${RCC_FILES} ${RES_FILE} ${CONFIG_FILE})
 qt5_use_modules(${PROJECT_NAME} ${QT_LIBRARIES_REQUIRED})
-target_link_libraries(${PROJECT_NAME} ${QT_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${QT_LIBRARIES} ${EXTERNAL_LIBRARIES})
 
 # TODO: Добавить линкование Qt и mingw dll

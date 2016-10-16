@@ -21,6 +21,7 @@
 #include <QWidget>
 #include <QDesktopServices>
 #include <QUrl>
+#include <src/launcher/gameSettings/services/GameSettingsService.h>
 
 #include "src/core/base/view/BaseView.h"
 
@@ -42,6 +43,7 @@ private:
 
     Ui::DashboardView *ui;
 
+    GameSettingsService *gameSettingsService;
 public slots:
 
     void onResume() override;
