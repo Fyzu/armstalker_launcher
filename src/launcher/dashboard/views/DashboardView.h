@@ -38,8 +38,6 @@ public:
 
 signals:
 
-    void viewChange(int);
-
 private:
 
     Ui::DashboardView *ui;

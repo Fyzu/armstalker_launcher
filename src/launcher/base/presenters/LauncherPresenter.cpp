@@ -22,7 +22,7 @@ LauncherPresenter::LauncherPresenter(LauncherView *launcherView)
 
     Logger::debug(TAG, "LauncherPresenter");
 
-    connect(launcherView, &LauncherView::backButtonClicked, this, &LauncherPresenter::onViewChange);
+    connect(launcherView, SIGNAL(viewChange(int)), this, SLOT(onViewChange(int)));
 
     updateStyle();
     onViewChange(DASHBOARD);

@@ -56,13 +56,6 @@ DashboardView::~DashboardView() {
     delete ui;
 }
 
-void DashboardView::saveChanges() {
-
-    Logger::debug(TAG, "saveChanges");
-
-    //TODO: Save settings
-}
-
 void DashboardView::onResume() {
 
     Logger::debug(TAG, "onResume");
