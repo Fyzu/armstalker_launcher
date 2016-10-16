@@ -23,7 +23,7 @@
 
 class BaseView : public QWidget, public BaseCore {
 
-Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit BaseView(const char *className) : QWidget(), BaseCore(className) {

@@ -24,8 +24,8 @@ set(SOURCE_FILES
         src/launcher/base/presenters/LauncherPresenter.cpp
         src/launcher/base/views/LauncherView.h
         src/launcher/base/views/LauncherView.cpp
-        src/launcher/base/widgets/SlidingStackedWidget.h
-        src/launcher/base/widgets/SlidingStackedWidget.cpp
+        src/launcher/base/managers/ViewManager.h
+        src/launcher/base/managers/ViewManager.cpp
         # DashBoard
         src/launcher/dashboard/views/DashboardView.cpp
         src/launcher/dashboard/views/DashboardView.h
@@ -33,14 +33,19 @@ set(SOURCE_FILES
         src/launcher/gameSettings/views/GameSettingsView.h
         src/launcher/gameSettings/views/GameSettingsView.cpp
         src/launcher/gameSettings/services/GameSettingsService.h
-        src/launcher/gameSettings/models/GameSettingsModel.h)
+        src/launcher/gameSettings/models/GameSettingsModel.h
+        # Game Updates
+        src/launcher/gameUpdates/views/GameUpdatesView.cpp
+        src/launcher/gameUpdates/views/GameUpdatesView.h
+        src/launcher/gameUpdates/services/GameUpdatesService.h)
 
 # UI files
 #file(GLOB_RECURSE UI_FILES *.ui)
 set(UI_FILES
         src/launcher/gameSettings/ui/GameSettings.ui
         src/launcher/dashboard/ui/NewsItem.ui
-        src/launcher/dashboard/ui/Dashboard.ui)
+        src/launcher/dashboard/ui/Dashboard.ui
+        src/launcher/gameUpdates/ui/GameUpdates.ui)
 
 # Qt resources files
 #file(GLOB_RECURSE RCC_FILES *.qrc)

@@ -39,7 +39,7 @@ DashboardView::DashboardView() : BaseView("DashboardView"), ui(new Ui::Dashboard
         //emit viewChange(LauncherPresenter::);
     });
     connect(ui->updatesButton, &QPushButton::clicked, [&]() {
-        //emit viewChange(LauncherPresenter::);
+        emit viewChange(LauncherPresenter::GAME_UPDATES);
     });
     connect(ui->vkButton, &QPushButton::clicked, [&]() {
         QDesktopServices::openUrl(QUrl("https://vk.com/armstalker_online"));

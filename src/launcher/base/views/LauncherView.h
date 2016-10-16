@@ -23,7 +23,7 @@
 
 #include "src/launcher/base/presenters/LauncherPresenter.h"
 #include "src/core/base/view/BaseView.h"
-#include "src/launcher/base/widgets/SlidingStackedWidget.h"
+#include "src/launcher/base/managers/ViewManager.h"
 
 #define STYLE_PATH ":/qdarkstyle/darkstyle.css"
 
@@ -39,15 +39,15 @@ public:
 
     ~LauncherView();
 
-    void insertView(int index, QWidget *widget);
+    void addView(BaseView *view);
 
-    void showView(int index);
+    void showView(BaseView *view);
 
 private:
 
     LauncherPresenter *launcherPresenter;
 
-    SlidingStackedWidget *stackedWidget;
+    ViewManager *viewManager;
     QPushButton *backButton;
 
     void setupUi();

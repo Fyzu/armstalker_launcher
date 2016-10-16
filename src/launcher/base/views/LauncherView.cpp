@@ -24,10 +24,9 @@ LauncherView::LauncherView() : QMainWindow(), BaseCore("LauncherView") {
     setupUi();
 
     connect(backButton, &QPushButton::clicked, this, &LauncherView::onBackButtonClicked);
-    connect(stackedWidget, &QStackedWidget::currentChanged, this, &LauncherView::onChangeViewFinished);
+    connect(viewManager, &ViewManager::changeViewFinished, this, &LauncherView::onChangeViewFinished);
 
     launcherPresenter = new LauncherPresenter(this);
-
 }
 
 LauncherView::~LauncherView() {
@@ -35,7 +34,7 @@ LauncherView::~LauncherView() {
     Logger::debug(TAG, "~LauncherView");
 
     delete launcherPresenter;
-    delete stackedWidget;
+    delete viewManager;
     delete backButton;
 }
 
@@ -53,16 +52,9 @@ void LauncherView::setupUi() {
     font.setWeight(50);
     this->setFont(font);
 
-    stackedWidget = new SlidingStackedWidget(this);
-    QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Preferred);
-    sizePolicy1.setHorizontalStretch(0);
-    sizePolicy1.setVerticalStretch(0);
-    sizePolicy1.setHeightForWidth(stackedWidget->sizePolicy().hasHeightForWidth());
-    stackedWidget->setSizePolicy(sizePolicy1);
-    stackedWidget->setFrameShape(QFrame::NoFrame);
-    stackedWidget->setFrameShadow(QFrame::Plain);
-    stackedWidget->setLineWidth(0);
-    setCentralWidget(stackedWidget);
+    viewManager = new ViewManager(this);
+
+    setCentralWidget(viewManager);
 
     backButton = new QPushButton(this);
     backButton->setGeometry(QRect(160, 160, 25, 25));
@@ -76,20 +68,18 @@ void LauncherView::setupUi() {
     backButton->move(14, 4);
 }
 
-void LauncherView::insertView(int index, QWidget *widget) {
+void LauncherView::addView(BaseView *view) {
 
-    Logger::debug(TAG, "insertView") << "Insert view to stack -" << widget->objectName();
+    Logger::debug(TAG, "addView") << "Add view to stack -" << view->objectName();
 
-    stackedWidget->insertWidget(index, widget);
+    viewManager->addView(view);
 }
 
-void LauncherView::showView(int viewTypeIndex) {
+void LauncherView::showView(BaseView *view) {
 
-    Logger::debug(TAG, "showView") << "viewIndex -" << viewTypeIndex;
+    Logger::debug(TAG, "showView") << "view -" << view->objectName();
 
-
-
-    stackedWidget->showWidget(viewTypeIndex);
+    viewManager->showView(view);
     backButton->hide();
 }
 
@@ -101,9 +91,10 @@ void LauncherView::onChangeViewFinished(int currentIndex) {
 
     Logger::debug(TAG, "onChangeViewFinished") << "currentIndex -" << currentIndex;
 
-    if (currentIndex == LauncherPresenter::DASHBOARD) {
+    if (currentIndex == 0) {
         backButton->hide();
-    } else if(currentIndex >= 0) {
+    } else if(currentIndex > 0) {
         backButton->show();
     }
 }
+

@@ -15,8 +15,8 @@
  * along with ArmSTALKER. If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#ifndef SLIDING_STACKED_WIDGET_H
-#define SLIDING_STACKED_WIDGET_H
+#ifndef VIEW_MANAGER_H
+#define VIEW_MANAGER_H
 
 #include <QObject>
 #include <QStackedWidget>
@@ -24,7 +24,7 @@
 #include <QPropertyAnimation>
 #include <QParallelAnimationGroup>
 
-class SlidingStackedWidget : public QStackedWidget {
+class ViewManager : protected QStackedWidget, public BaseCore {
 
     Q_OBJECT
 
@@ -37,9 +37,9 @@ public:
         AUTOMATIC
     };
 
-    SlidingStackedWidget(QWidget *parent = 0);
+    ViewManager(QWidget *parent = 0);
 
-    ~SlidingStackedWidget();
+    ~ViewManager();
 
     void setAnimationSpeed(int animationSpeed);
 
@@ -47,28 +47,33 @@ public:
 
     void setIsVertical(bool isVertical);
 
-protected:
-    void showWidget(QWidget *widget, enum Direction direction = AUTOMATIC);
+    void showView(BaseView *view, enum Direction direction = AUTOMATIC);
+
+    BaseView *view(int index);
+
+    BaseView *currentView();
+
+    void addView(BaseView *view);
 
 private:
     int animationSpeed;
     enum QEasingCurve::Type animationType;
     bool isVertical;
-    int nextIndex;
-    QPoint pointNow;
+    BaseView *nextView;
+    QPoint currentPoint;
     bool isActive;
 
 public slots:
 
-    void showWidget(int index);
+    void showView(int index);
 
 signals:
 
-    void animationFinished();
+    void changeViewFinished(int currentView);
 
 protected slots:
 
     void animationFinish();
 };
 
-#endif // SLIDING_STACKED_WIDGET_H
+#endif // VIEW_MANAGER_H

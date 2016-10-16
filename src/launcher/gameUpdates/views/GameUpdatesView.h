@@ -15,41 +15,38 @@
  * along with ArmSTALKER. If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#ifndef ARMSTALKER_LAUNCHER_DASHBOARD_VIEW_H
-#define ARMSTALKER_LAUNCHER_DASHBOARD_VIEW_H
+#ifndef ARMSTALKER_GAME_UPDATES_VIEW_H
+#define ARMSTALKER_GAME_UPDATES_VIEW_H
 
-#include <QWidget>
-#include <QDesktopServices>
-#include <QUrl>
-#include <src/launcher/gameSettings/services/GameSettingsService.h>
+#include <src/core/base/view/BaseView.h>
 
-#include "src/core/base/view/BaseView.h"
+#include "ui_GameUpdates.h"
 
-#include "ui_Dashboard.h"
-
-class DashboardView : public BaseView {
+class GameUpdatesView : public BaseView {
 
     Q_OBJECT
 
 public:
+    GameUpdatesView();
 
-    DashboardView();
-
-    ~DashboardView();
-
-signals:
+    ~GameUpdatesView();
 
 private:
 
-    Ui::DashboardView *ui;
+    void saveSettings();
 
-    GameSettingsService *gameSettingsService;
-public slots:
+    Ui::GameUpdatesView *ui;
+
+
+private slots:
 
     void onResume() override;
 
     void onStop() override;
+
+public:
+
 };
 
 
-#endif //ARMSTALKER_LAUNCHER_DASHBOARD_VIEW_H
+#endif //ARMSTALKER_GAME_UPDATES_VIEW_H

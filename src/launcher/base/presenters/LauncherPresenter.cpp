@@ -58,22 +58,27 @@ void LauncherPresenter::onViewChange(int viewTypeIndex) {
         case DASHBOARD:
             if (dashBoardView == nullptr) {
                 dashBoardView = new DashboardView();
-                launcherView->insertView(DASHBOARD, dashBoardView);
+                launcherView->addView(dashBoardView);
 
                 connect(dashBoardView, SIGNAL(viewChange(int)), this, SLOT(onViewChange(int)));
             }
-            emit dashBoardView->resume();
+            launcherView->showView(dashBoardView);
             break;
         case GAME_SETTINGS:
             if (gameSettingsView == nullptr) {
                 gameSettingsView = new GameSettingsView();
-                launcherView->insertView(GAME_SETTINGS, gameSettingsView);
+                launcherView->addView(gameSettingsView);
             }
-            emit gameSettingsView->resume();
+            launcherView->showView(gameSettingsView);
+            break;
+        case GAME_UPDATES:
+            if (gameUpdatesView == nullptr) {
+                gameUpdatesView = new GameUpdatesView();
+                launcherView->addView(gameUpdatesView);
+            }
+            launcherView->showView(gameUpdatesView);
             break;
         default:
             return;
     }
-
-    launcherView->showView(viewTypeIndex);
 }

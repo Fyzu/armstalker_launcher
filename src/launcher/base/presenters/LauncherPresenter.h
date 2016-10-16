@@ -27,6 +27,7 @@
 #include "src/launcher/base/views/LauncherView.h"
 #include "src/launcher/dashboard/views/DashboardView.h"
 #include "src/launcher/gameSettings/views/GameSettingsView.h"
+#include "src/launcher/gameUpdates/views/GameUpdatesView.h"
 
 class LauncherView;
 
@@ -37,7 +38,8 @@ Q_OBJECT
 public:
     enum ViewType {
         DASHBOARD,
-        GAME_SETTINGS
+        GAME_SETTINGS,
+        GAME_UPDATES
     };
 
     LauncherPresenter(LauncherView *launcherView);
@@ -48,6 +50,7 @@ private:
     LauncherView *launcherView;
     DashboardView *dashBoardView = nullptr;
     GameSettingsView *gameSettingsView = nullptr;
+    GameUpdatesView *gameUpdatesView = nullptr;
 
 private slots:
 
