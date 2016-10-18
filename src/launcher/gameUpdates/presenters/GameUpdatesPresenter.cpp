@@ -15,30 +15,13 @@
  * along with ArmSTALKER. If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#include <src/core/base/logger/Logger.h>
+#include "GameUpdatesPresenter.h"
 
-#include "GameUpdatesView.h"
-
-GameUpdatesView::GameUpdatesView() : BaseView("GameUpdatesView"), ui(new Ui::GameUpdatesView()) {
-
-    Logger::debug(TAG, "GameUpdatesView");
-
-    ui->setupUi(this);
-
-    gameUpdatesPresenter = new GameUpdatesPresenter(this);
-}
-
-GameUpdatesView::~GameUpdatesView() {
+GameUpdatesPresenter::GameUpdatesPresenter(GameUpdatesView *gameUpdatesView)
+        : BasePresenter("GameUpdatesPresenter"), gameUpdatesView(gameUpdatesView){
 
 }
 
-void GameUpdatesView::onResume() {
-
-    Logger::debug(TAG, "onResume");
-}
-
-void GameUpdatesView::onStop() {
-
-    Logger::debug(TAG, "onStop");
+GameUpdatesPresenter::~GameUpdatesPresenter() {
 
 }

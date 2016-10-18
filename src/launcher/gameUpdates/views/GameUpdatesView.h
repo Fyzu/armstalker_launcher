@@ -19,6 +19,7 @@
 #define ARMSTALKER_GAME_UPDATES_VIEW_H
 
 #include <src/core/base/view/BaseView.h>
+#include <src/launcher/gameUpdates/presenters/GameUpdatesPresenter.h>
 
 #include "ui_GameUpdates.h"
 
@@ -32,11 +33,10 @@ public:
     ~GameUpdatesView();
 
 private:
-
-    void saveSettings();
-
+    GameUpdatesPresenter *gameUpdatesPresenter;
     Ui::GameUpdatesView *ui;
 
+    void saveSettings();
 
 private slots:
 

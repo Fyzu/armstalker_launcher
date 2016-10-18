@@ -18,7 +18,36 @@
 #ifndef ARMSTALKER_GAME_UPDATES_SERVICE_H
 #define ARMSTALKER_GAME_UPDATES_SERVICE_H
 
-class GameUpdatesService {
+#include <QObject>
+#include <c++/memory>
+#include <src/core/base/core/BaseCore.h>
+
+class GameUpdatesService : public BaseCore, public QObject {
+
+    Q_OBJECT
+
+public:
+    GameUpdatesService() : BaseCore("GameSettingsService"), QObject() {
+
+    }
+
+    ~GameUpdatesService() {
+
+    }
+
+    static GameUpdatesService *getInstance() {
+        static std::shared_ptr<GameUpdatesService> _instance = std::make_shared<GameUpdatesService>();
+        return _instance.get();
+    }
+
+private:
+    static std::shared_ptr<GameUpdatesService> _instance;
+
+    GameUpdatesService(const GameUpdatesService &) = delete;
+
+    GameUpdatesService &operator=(const GameUpdatesService &) = delete;
+public:
+
 
 };
 

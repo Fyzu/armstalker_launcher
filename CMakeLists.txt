@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.6)
 
 # Project settings
-project(ArmSTALKER VERSION 0.1.0.0)
+project(ArmSTALKER VERSION 0.0.0.1)
 
 # Qt Libraries
 set(QT_LIBRARIES_REQUIRED Core Widgets Gui Network)
@@ -37,6 +37,8 @@ set(SOURCE_FILES
         # Game Updates
         src/launcher/gameUpdates/views/GameUpdatesView.cpp
         src/launcher/gameUpdates/views/GameUpdatesView.h
+        src/launcher/gameUpdates/presenters/GameUpdatesPresenter.cpp
+        src/launcher/gameUpdates/presenters/GameUpdatesPresenter.h
         src/launcher/gameUpdates/services/GameUpdatesService.h)
 
 # UI files

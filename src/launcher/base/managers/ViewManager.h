@@ -49,19 +49,19 @@ public:
 
     void showView(BaseView *view, enum Direction direction = AUTOMATIC);
 
-    BaseView *view(int index);
+    BaseView *getView(int index);
 
     BaseView *currentView();
 
     void addView(BaseView *view);
 
 private:
-    int animationSpeed;
-    enum QEasingCurve::Type animationType;
-    bool isVertical;
+    int animationSpeed = 500;
+    enum QEasingCurve::Type animationType = QEasingCurve::OutBack;
+    bool isVertical = false;
+
     BaseView *nextView;
-    QPoint currentPoint;
-    bool isActive;
+    bool isActive = false;
 
 public slots:
 

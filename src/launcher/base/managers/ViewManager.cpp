@@ -28,12 +28,6 @@ ViewManager::ViewManager(QWidget *parent) : QStackedWidget(parent), BaseCore("Vi
     setFrameShape(QFrame::NoFrame);
     setFrameShadow(QFrame::Plain);
     setLineWidth(0);
-
-    isVertical = false;
-    animationSpeed = 500;
-    animationType = QEasingCurve::OutBack;
-    currentPoint = QPoint(0, 0);
-    isActive = false;
 }
 
 ViewManager::~ViewManager() {
@@ -42,7 +36,7 @@ ViewManager::~ViewManager() {
 
 void ViewManager::showView(int index) {
 
-    showView(view(index));
+    showView(getView(index));
 }
 
 void ViewManager::showView(BaseView *nextView, enum Direction direction) {
@@ -121,7 +115,7 @@ void ViewManager::animationFinish() {
     setCurrentWidget(nextView);
 
     prevView->hide();
-    prevView->move(currentPoint);
+    prevView->move(QPoint(0, 0));
 
     isActive = false;
 
@@ -140,7 +134,7 @@ void ViewManager::setIsVertical(bool isVertical) {
     ViewManager::isVertical = isVertical;
 }
 
-BaseView *ViewManager::view(int index) {
+BaseView *ViewManager::getView(int index) {
     return dynamic_cast<BaseView *>(widget(index));
 }
 
